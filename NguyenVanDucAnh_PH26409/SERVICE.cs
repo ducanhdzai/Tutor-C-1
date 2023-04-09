@@ -86,7 +86,6 @@ namespace NguyenVanDucAnh_PH26409
         public string MaTuSinh()
         {
 // nếu kiểu dữ liệu của mã sv là int thì ko cần cộng chuỗi và ở trên là public int
- 
                 return "MSV" + lstSinhVien.Count();
         }
     }
