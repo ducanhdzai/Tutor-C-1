@@ -21,8 +21,7 @@ namespace NguyenVanDucAnh_PH26409
                 // Khởi tạo ra 1 thằng sinh viên để thêm vào list
                 SinhVien sv = new SinhVien();// đây gọi là hành động khởi tạo 1 đối tượng
                 // Nhập thông tin cho đối tượng
-                Console.WriteLine("Mời bạn nhập MSV: ");
-                sv.MaSV = Console.ReadLine();
+                sv.MaSV = MaTuSinh();
                 Console.WriteLine("Mời bạn nhập họ và tên: ");
                 sv.HoTen = Console.ReadLine();
                 Console.WriteLine("Mời bạn nhập năm sinh: ");
@@ -45,6 +44,50 @@ namespace NguyenVanDucAnh_PH26409
                 sv.inThongTin();
             }
             //Sau đó sang bên Program để gọi chức năng
+        }
+        // Nếu kh dùng linq dùng thuần 
+        // Lấy ra tên 
+        // Lấy kí tự đầu tiên của tên xong check xem có == "A"
+        public void TimKiemTenKiTuACach1()
+        {
+            foreach (SinhVien sv in lstSinhVien)
+            {
+                if (sv.HoTen[0] == 'A') // Lấy ra kí tự đầu tiên của ho tên bằng cách là [0] bởi vì hoTen là 1 mảng kí tự
+                {
+                    sv.inThongTin();
+                }
+            }
+        }
+        public void TimKiemTenKiTuACach2()
+        {
+            foreach (SinhVien sv in lstSinhVien)
+            {
+                #region StartsWith
+                // Start with là để tìm kiếm chuỗi bắt đầu bởi chuỗi ở bên trong StartsWith("") trong bài này là tìm kiếm Sinh Viên có họ tên bắt đầu bằng chữ A. Và chỉ có thể sử dụng khi thuộc tính là string nếu tìm được thằng nào bắt đầu bằng chữ A thì sẽ trả về giá true cho if và câu lệnh ở trong if sẽ được thực hiện
+                #endregion
+                if (sv.HoTen.StartsWith("A"))
+                {
+                    sv.inThongTin();
+                }
+            }
+        }
+        public void XuatThongTinSinhVienTuoiTren20()
+        {
+            foreach (SinhVien sv in lstSinhVien)
+            {
+                if (DateTime.Now.Year - sv.NamSinh > 20) //DateTime.Now là lấy ra toàn bộ thời gian hiện tại khi chạy đến câu if này cả là giây phút giờ thêm .Year vào để chỉ lấy ra năm thôi.
+                {
+                    sv.inThongTin();
+                }
+            }
+        }
+        // Tạo ra phương thức trả về có giá trị
+        // Làm mã tự sinh
+        public string MaTuSinh()
+        {
+// nếu kiểu dữ liệu của mã sv là int thì ko cần cộng chuỗi và ở trên là public int
+ 
+                return "MSV" + lstSinhVien.Count();
         }
     }
 }

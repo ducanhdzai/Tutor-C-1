@@ -38,7 +38,8 @@ namespace NguyenVanDucAnh_PH26409
             HoTen = hoTen;
             NamSinh = namSinh;
         }
-        public void inThongTin()
+        // Ở class cha thì phải thêm từ khóa virtual để class con có thể ghi đè hoặc sử dụng lại
+        public virtual void inThongTin()
         {
             // Sẽ phải in ra hết các thông tin đề bài cho
             Console.WriteLine($"Mã sinh viên: {maSV}");

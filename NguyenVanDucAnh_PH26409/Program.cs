@@ -25,6 +25,7 @@ namespace NguyenVanDucAnh_PH26409
                 Console.WriteLine("2.Xuất danh sách đối tượng");
                 Console.WriteLine("3.Xuất danh sách các SV có tên bắt đầu bởi chữ A");
                 Console.WriteLine("4. Chúc mừng những sinh viên có tuổi > 20");
+                Console.WriteLine("5.Kế thừa");
                 Console.WriteLine("0.Thoát");
                 Console.WriteLine("Mời bạn chọn chức năng");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -43,12 +44,28 @@ namespace NguyenVanDucAnh_PH26409
                         break;
                     case 3:
                         {
-
+                            services.TimKiemTenKiTuACach1();
                         }
                         break;
                     case 4:
                         {
-
+                            services.XuatThongTinSinhVienTuoiTren20();
+                        }
+                        break;
+                    case 5:
+                        {
+                            Console.WriteLine("Mời bạn nhập MSV: ");
+                            string msv = Console.ReadLine();
+                            Console.WriteLine("Mời bạn nhập họ và tên: ");
+                            string hoTen = Console.ReadLine();
+                            Console.WriteLine("Mời bạn nhập năm sinh: ");
+                            int namSinh = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Mời bạn nhập điểm C#: ");
+                            double diemCsharp = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine("Mời bạn nhập điểm Java: ");
+                            double diemJava = Convert.ToDouble(Console.ReadLine());
+                            SinhVienUDPM svUDPM = new SinhVienUDPM(msv,hoTen,namSinh,diemCsharp,diemJava); // Đây là constructor  có tham số
+                            svUDPM.inThongTin();
                         }
                         break;
                     case 0:
